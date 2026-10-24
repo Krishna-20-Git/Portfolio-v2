@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krishna | Full-Stack & IoT Systems Engineer</title>
+    <meta name="description" content="Explore the Bento-grid inspired portfolio of Krishna, featuring distributed systems, IoT nodes, and full-stack creations. Clean, responsive styling.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="light">
+    <!-- Scroll Progress Bar -->
+    <div id="scroll-progress-bar" class="scroll-progress-bar"></div>
+
+    <!-- Custom Sparkle Particle Cursor -->
+    <div id="cursor-trail-container"></div>
+
+    <!-- Ambient Canvas (Interactive Fluid Mesh) -->
+    <canvas id="ambient-canvas"></canvas>
+
+    <!-- Floating Navigation Pill -->
+    <header class="header" id="main-header">
+        <div class="nav-container">
+            <a href="#" class="logo" id="logo-link">
+                Krishna<span class="logo-accent">.dev</span>
+            </a>
+            
+            <!-- Desktop Navbar -->
+            <nav class="navbar" id="desktop-navbar">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#experience" class="nav-link">Timeline</a>
+                <a href="#contact" class="nav-link btn-contact-nav">Connect</a>
+            </nav>
+
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <button id="menu-toggle" class="menu-toggle-btn" aria-label="Toggle Menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <nav class="mobile-navbar" id="mobile-navbar">
+            <a href="#about" class="mobile-link">About</a>
+            <a href="#skills" class="mobile-link">Skills</a>
+            <a href="#projects" class="mobile-link">Projects</a>
+            <a href="#experience" class="mobile-link">Timeline</a>
+            <a href="#contact" class="mobile-link mobile-btn-contact">Contact Me</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Landing: dot -> "!" -> tumbling name -> PORTFOLIO -> dust gathers into a portrait -->
+        <section class="landing is-intro" id="hero" aria-label="Introduction">
+            <div class="landing-glow" aria-hidden="true"></div>
+
+            <!-- Intro stage: the dot / exclamation mark and the tumbling name -->
+            <div class="landing-stage" id="landing-stage" aria-hidden="true">
+                <div class="ls-mark" id="ls-mark"><span class="ls-bar"></span><span class="ls-dot"></span></div>
+                <div class="ls-name" id="ls-name"></div>
+            </div>
+
+            <!-- Final hero copy -->
+            <div class="landing-main" id="landing-main">
+                <h1 class="landing-title" id="landing-title" aria-label="Krishna, Portfolio"></h1>
+                <div class="landing-row">
+                    <p class="landing-role"><strong>IoT &amp; Full-Stack</strong> <em>Developer</em></p>
+                    <div class="landing-actions">
+                        <a href="#projects" class="landing-pill">Projects</a>
+                        <a href="#contact" class="landing-pill landing-pill-solid">Contact</a>
+                    </div>
+                </div>
+            </div>
+
+            <canvas class="landing-canvas" id="landing-canvas" aria-hidden="true"></canvas>
+
+            <button type="button" class="landing-skip" id="landing-skip">Skip intro</button>
+            <a href="#about" class="scroll-indicator landing-scroll" aria-label="Scroll Down" id="scroll-down-btn">
+                <span class="mouse"><span class="wheel"></span></span>
+            </a>
+        </section>
+
+        <!-- Main Bento Grid Dashboard (About & Profile) -->
+        <section class="about-section container" id="about">
+            <div class="section-header reveal-up">
+                <span class="section-tag">Overview</span>
+                <h2 class="section-title">About Me</h2>
+                <div class="accent-line"></div>
+            </div>
+
+            <div class="bento-dashboard-grid">
+                <!-- Bento Cell 1: Bio Introduction -->
+                <div class="bento-cell cell-bio reveal-up">
+                    <i class="fa-solid fa-quote-left quote-icon"></i>
+                    <h3>The Philosophy</h3>
+                    <p>
+                        I build modular applications with a strong emphasis on clean code structure, asynchronous messaging queues, and state-of-the-art interactive interfaces. My toolkit scales from low-level IoT firmware interfaces up to high-capacity Java pipelines handling bulk CSV datasets.
+                    </p>
+                    <p>
+                        Driven by core CS fundamentals—Object-Oriented Programming, Data Structures, and Operating System schedulers—I approach challenges with systems-level thinking.
+                    </p>
+                </div>
+
+                <!-- Bento Cell 2: Slot B (Where the avatar ends up on scroll down) -->
+                <div class="bento-cell cell-avatar reveal-up">
+                    <div id="about-avatar-placeholder" class="avatar-placeholder" role="img" aria-label="Photo of Krishna"></div>
+                </div>
+
+                <!-- Bento Cell 3: Metrics List -->
+                <div class="bento-cell cell-stats reveal-up">
+                    <div class="stat-row">
+                        <span class="stat-number">9.3</span>
+                        <span class="stat-name">B.Tech CGPA</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-number">3+</span>
+                        <span class="stat-name">Full-Stack Apps</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-number">28+</span>
+                        <span class="stat-name">Algorithm Modules</span>
+                    </div>
+                </div>
+
+                <!-- Bento Cell 4: Interactive CLI console -->
+                <div class="bento-cell cell-terminal reveal-up" id="terminal-bento">
+                    <div class="terminal-header">
+                        <div class="terminal-buttons">
+                            <span class="btn-dot close"></span>
+                            <span class="btn-dot minimize"></span>
+                            <span class="btn-dot maximize"></span>
+                        </div>
+                        <span class="terminal-title">krishna@github-cli:~ (interactive)</span>
+                    </div>
+                    <div class="terminal-body">
+                        <div class="terminal-output" id="terminal-output-log">
+                            <p class="terminal-line system-msg">
+                                <span class="sparkle-text">★</span> Krishna's Interactive CLI Console v1.4.0
+                            </p>
+                            <p class="terminal-line system-msg">
+                                Commands: <span class="highlight">help</span>, <span class="highlight">skills</span>, <span class="highlight">projects</span>, <span class="highlight">git log</span>, <span class="highlight">contact</span>, <span class="highlight">clear</span>.
+                            </p>
+                            <p class="terminal-line"><span class="prompt">visitor@krishna-dev:~$</span> <span class="typed-cmd">git log --oneline</span></p>
+                            <p class="terminal-line output-msg"><span class="commit-hash">a3e89f2</span> feat: Kafka queue engine for invoice parsing</p>
+                            <p class="terminal-line output-msg"><span class="commit-hash">7c12b91</span> refactor: blueprint structural changes for Flask app</p>
+                        </div>
+                        <div class="terminal-input-row">
+                            <span class="prompt">visitor@krishna-dev:~$</span>
+                            <div class="terminal-input-container">
+                                <input type="text" id="terminal-input-field" autocomplete="off" placeholder="type a command...">
+                                <span id="terminal-autocomplete-hint" class="autocomplete-hint"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Skills Section -->
+        <section class="skills-section container" id="skills">
+            <div class="section-header reveal-up">
+                <span class="section-tag">Expertise</span>
+                <h2 class="section-title">Technical Skills</h2>
+                <div class="accent-line"></div>
+            </div>
+            
+            <div class="skills-bento-grid">
+                <!-- Languages -->
+                <div class="skills-bento-card reveal-up scroll-3d-card">
+                    <div class="card-header">
+                        <i class="fa-solid fa-code text-marigold"></i>
+                        <h3>Languages</h3>
+                    </div>
+                    <ul class="skills-list">
+                        <li>JavaScript (ES6+)</li>
+                        <li>HTML5 & CSS3</li>
+                        <li>Python</li>
+                        <li>Java 21</li>
+                        <li>C & C++</li>
+                    </ul>
+                </div>
+                <!-- Frontend -->
+                <div class="skills-bento-card reveal-up scroll-3d-card">
+                    <div class="card-header">
+                        <i class="fa-solid fa-cubes text-saffron"></i>
+                        <h3>Frontend</h3>
+                    </div>
+                    <ul class="skills-list">
+                        <li>React.js</li>
+                        <li>Next.js</li>
+                        <li>Tailwind CSS</li>
+                        <li>Framer Motion</li>
+                        <li>Responsive Grid/Flex</li>
+                    </ul>
+                </div>
+                <!-- Backend -->
+                <div class="skills-bento-card reveal-up scroll-3d-card">
+                    <div class="card-header">
+                        <i class="fa-solid fa-server text-indigo"></i>
+                        <h3>Backend</h3>
+                    </div>
+                    <ul class="skills-list">
+                        <li>Spring Boot 3.5</li>
+                        <li>Flask Monoliths</li>
+                        <li>Apache Kafka</li>
+                        <li>stateless JWT</li>
+                        <li>PostgreSQL & Neon</li>
+                    </ul>
+                </div>
+                <!-- DevOps & CS Fundamentals -->
+                <div class="skills-bento-card reveal-up scroll-3d-card">
+                    <div class="card-header">
+                        <i class="fa-solid fa-microchip text-emerald"></i>
+                        <h3>CS & IoT</h3>
+                    </div>
+                    <ul class="skills-list">
+                        <li>Data Structures / DSA</li>
+                        <li>Operating Systems</li>
+                        <li>Embedded Systems</li>
+                        <li>Docker & Compose</li>
+                        <li>Git & Vercel</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Showcase Section (3D Book Card Style) -->
+        <section class="projects-section container" id="projects">
+            <div class="section-header reveal-up">
+                <span class="section-tag">Showcase</span>
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="accent-line"></div>
+            </div>
+
+            <!-- Circular carousel (clicking the front card jumps to its flip book below) -->
+            <div class="showcase-carousel" id="project-carousel"></div>
+            <div class="showcase-active" aria-live="polite">
+                <span class="showcase-active-sub" id="active-sub"></span>
+                <h3 class="showcase-active-title" id="active-title"></h3>
+                <a href="#project-kriya" class="showcase-active-cta" id="active-cta">
+                    <span>View project</span> <i class="fa-solid fa-arrow-down"></i>
+                </a>
+            </div>
+
+            <!-- Filter Controls -->
+            <div class="filter-controls reveal-up" id="filter-controls">
+                <button class="filter-btn active" data-filter="all">All Work</button>
+                <button class="filter-btn" data-filter="full-stack">Full-Stack</button>
+                <button class="filter-btn" data-filter="systems">Systems</button>
+                <button class="filter-btn" data-filter="frontend">Frontend</button>
+            </div>
+
+            <!-- Project Grid (Book style hover cells) -->
+            <div class="project-grid" id="project-grid-container">
+                <!-- Kriya Project Manager -->
+                <article class="project-card book-card reveal-up" data-category="full-stack systems" id="project-kriya">
+                    <div class="project-card-inside">
+                        <h4 class="inside-title">Core Achievements</h4>
+                        <ul class="project-bullets">
+                            <li><i class="fa-solid fa-shield-halved"></i> Refresh-token rotation, role-based access and audit log.</li>
+                            <li><i class="fa-solid fa-flask"></i> 224 automated tests against a real PostgreSQL database.</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="https://kriya-eosin.vercel.app" target="_blank" rel="noopener" class="btn-project-link">
+                                <span>Open Web App</span> <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                            <a href="https://github.com/Krishna-20-Git/Kriya" target="_blank" rel="noopener" class="btn-project-link">
+                                <span>View Source</span> <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-card-cover">
+                        <div class="cover-front">
+                            <div class="cover-screenshot-wrapper">
+                                <img src="assets/kriya_web_dashboard.png" alt="Kriya project management dashboard" class="cover-screenshot">
+                            </div>
+                            <div class="cover-content">
+                                <h3>Kriya Project Manager</h3>
+                                <span class="project-date"><i class="fa-regular fa-calendar"></i> Oct 2026</span>
+                                <span class="hover-tip">Hover to Open <i class="fa-solid fa-book-open"></i></span>
+                            </div>
+                        </div>
+                        <div class="cover-back">
+                            <span class="project-tags">React &bull; React Native &bull; Express &bull; PostgreSQL</span>
+                            <h4 class="inside-title">Web + Android Task Manager</h4>
+                            <p class="project-description">
+                                Project and task manager with a React web app and an Expo Android app sharing one Express API and one PostgreSQL database. Sign in once, use it on either platform.
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 1 -->
+                <article class="project-card book-card reveal-up" data-category="full-stack systems" id="project-invoice">
+                    <!-- Inside Card (Right Page) -->
+                    <div class="project-card-inside">
+                        <h4 class="inside-title">Core Achievements</h4>
+                        <ul class="project-bullets">
+                            <li><i class="fa-solid fa-bolt"></i> Async Kafka parser reduces API response latency to milliseconds.</li>
+                            <li><i class="fa-solid fa-lock"></i> Secured with stateless JSON Web Tokens (JWT).</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="https://invoice-frontend-tau-lemon.vercel.app/login" target="_blank" rel="noopener" class="btn-project-link">
+                                <span>Demo System</span> <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Cover Page (flaps open to the left) -->
+                    <div class="project-card-cover">
+                        <div class="cover-front">
+                            <div class="cover-screenshot-wrapper">
+                                <img src="assets/invoice_screenshot_v2.png" alt="Invoice App Mockup" class="cover-screenshot">
+                            </div>
+                            <div class="cover-content">
+                                <h3>Distributed Invoice System</h3>
+                                <span class="project-date"><i class="fa-regular fa-calendar"></i> May &ndash; Jun 2026</span>
+                                <span class="hover-tip">Hover to Open <i class="fa-solid fa-book-open"></i></span>
+                            </div>
+                        </div>
+                        <!-- Inside Left Page -->
+                        <div class="cover-back">
+                            <span class="project-tags">Spring Boot &bull; Kafka &bull; Postgres</span>
+                            <h4 class="inside-title">Asynchronous Billing Engine</h4>
+                            <p class="project-description">
+                                Asynchronous processing engine utilizing Kafka queues and Spring Boot to ingest bulk CSV datasets (10,000+ entries) instantly.
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 2 -->
+                <article class="project-card book-card reveal-up" data-category="full-stack systems" id="project-algorithms">
+                    <!-- Inside Card (Right Page) -->
+                    <div class="project-card-inside">
+                        <h4 class="inside-title">Core Achievements</h4>
+                        <ul class="project-bullets">
+                            <li><i class="fa-solid fa-chart-bar"></i> Dynamic dashboard tracks learning session milestones.</li>
+                            <li><i class="fa-solid fa-network-wired"></i> Reduced script redundancy by 40% using Blueprint modularity.</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="https://dsa-platform-v2.onrender.com" target="_blank" rel="noopener" class="btn-project-link">
+                                <span>Launch Platform</span> <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Cover Page -->
+                    <div class="project-card-cover">
+                        <div class="cover-front">
+                            <div class="cover-screenshot-wrapper">
+                                <img src="assets/dsa_screenshot_v3.png" alt="DSA Platform Mockup" class="cover-screenshot">
+                            </div>
+                            <div class="cover-content">
+                                <h3>Algorithm Suite Platform</h3>
+                                <span class="project-date"><i class="fa-regular fa-calendar"></i> Nov &ndash; Dec 2025</span>
+                                <span class="hover-tip">Hover to Open <i class="fa-solid fa-book-open"></i></span>
+                            </div>
+                        </div>
+                        <!-- Inside Left Page -->
+                        <div class="cover-back">
+                            <span class="project-tags">Python &bull; Flask &bull; SQLite</span>
+                            <h4 class="inside-title">Algorithmic Learning SaaS</h4>
+                            <p class="project-description">
+                                SaaS platform unifying 28 algorithm visualizers into a modular monolith using Flask Blueprints. Tracks student progression metrics.
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 3 -->
+                <article class="project-card book-card reveal-up" data-category="frontend" id="project-scheduler">
+                    <!-- Inside Card (Right Page) -->
+                    <div class="project-card-inside">
+                        <h4 class="inside-title">Core Achievements</h4>
+                        <ul class="project-bullets">
+                            <li><i class="fa-solid fa-desktop"></i> Decoupled chart renderer handles dynamic datasets smoothly.</li>
+                            <li><i class="fa-solid fa-crop"></i> Responsive Tailwind layout built for all viewports.</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="https://os-scheduler-visualizer.vercel.app" target="_blank" rel="noopener" class="btn-project-link">
+                                <span>Simulate Schedulers</span> <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Cover Page -->
+                    <div class="project-card-cover">
+                        <div class="cover-front">
+                            <div class="cover-screenshot-wrapper">
+                                <img src="assets/os_screenshot_v2.png" alt="OS Simulator Mockup" class="cover-screenshot">
+                            </div>
+                            <div class="cover-content">
+                                <h3>OS Scheduling Simulator</h3>
+                                <span class="project-date"><i class="fa-regular fa-calendar"></i> Oct &ndash; Dec 2025</span>
+                                <span class="hover-tip">Hover to Open <i class="fa-solid fa-book-open"></i></span>
+                            </div>
+                        </div>
+                        <!-- Inside Left Page -->
+                        <div class="cover-back">
+                            <span class="project-tags">React.js &bull; Tailwind &bull; Context</span>
+                            <h4 class="inside-title">CPU Scheduling Simulator</h4>
+                            <p class="project-description">
+                                Client-side renderer demonstrating CPU execution algorithms (FCFS, SJF, Priority, Round Robin). Dynamic updates render Gantt charting sequences.
+                            </p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- GitHub Prominent Bento Callout -->
+            <div class="github-bento-callout reveal-up">
+                <div class="github-bento-inner">
+                    <i class="fa-brands fa-github git-callout-icon"></i>
+                    <div class="git-info">
+                        <h3>Review commits on @Krishna-20-Git</h3>
+                        <p>Explore raw configurations, Dockerfiles, and systems integrations directly inside my public github repositories.</p>
+                    </div>
+                </div>
+                <a href="https://github.com/Krishna-20-Git" target="_blank" rel="noopener" class="btn btn-outline marigold-border magnetic" id="github-callout-btn">
+                    <span>Visit Profile</span> <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- Education & Journey Section -->
+        <section class="experience-section container" id="experience">
+            <div class="section-header reveal-up">
+                <span class="section-tag">Journey</span>
+                <h2 class="section-title">Education Timeline</h2>
+                <div class="accent-line"></div>
+            </div>
+            
+            <div class="timeline">
+                <!-- Timeline Item 1 -->
+                <div class="timeline-item reveal-up" id="timeline-srmist">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2024 &mdash; 2028</div>
+                    <div class="timeline-card scroll-3d-card">
+                        <div class="timeline-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                        <h3>B.Tech &mdash; Computer Science (IoT Specialisation)</h3>
+                        <span class="timeline-subtitle">SRMIST, Chennai</span>
+                        <p>Focusing on embedded microcontrollers, distributed databases, smart sensor networks, real-time operating architectures, and custom interface controllers.</p>
+                        <div class="timeline-badge">CGPA: 9.3</div>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 2 -->
+                <div class="timeline-item reveal-up" id="timeline-dps">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2024</div>
+                    <div class="timeline-card scroll-3d-card">
+                        <div class="timeline-icon"><i class="fa-solid fa-school"></i></div>
+                        <h3>Class XII &mdash; CBSE Board</h3>
+                        <span class="timeline-subtitle">Delhi Public School (DPS), Ranchi</span>
+                        <p>Completed higher secondary education in science stream, laying logic foundations in mathematics and structural sciences.</p>
+                        <div class="timeline-badge">Percentage: 83.2%</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section container" id="contact">
+            <div class="section-header reveal-up">
+                <span class="section-tag">Contact</span>
+                <h2 class="section-title">Send a Message</h2>
+                <div class="accent-line"></div>
+            </div>
+
+            <div class="contact-grid">
+                <!-- Contact Details -->
+                <div class="contact-info-wrapper reveal-up scroll-3d-card">
+                    <div class="info-card">
+                        <h3>Interested in collaborating?</h3>
+                        <p>Let's talk about software architectures, SDE roles, internet of things projects, or system development.</p>
+                        
+                        <div class="contact-methods">
+                            <a href="mailto:krishnadpsranchi@gmail.com" class="method-item" id="contact-method-email">
+                                <div class="method-icon"><i class="fa-regular fa-envelope"></i></div>
+                                <div class="method-text">
+                                    <span class="method-label">Email Me</span>
+                                    <span class="method-val">krishnadpsranchi@gmail.com</span>
+                                </div>
+                            </a>
+                            <a href="tel:+919304944218" class="method-item" id="contact-method-phone">
+                                <div class="method-icon"><i class="fa-solid fa-phone"></i></div>
+                                <div class="method-text">
+                                    <span class="method-label">Call / WhatsApp</span>
+                                    <span class="method-val">+91 9304944218</span>
+                                </div>
+                            </a>
+                            <div class="method-item" id="contact-method-location">
+                                <div class="method-icon"><i class="fa-solid fa-compass"></i></div>
+                                <div class="method-text">
+                                    <span class="method-label">Current Base</span>
+                                    <span class="method-val">Ranchi, JH / Chennai, TN</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-wrapper reveal-up scroll-3d-card">
+                    <form class="contact-form" id="portfolio-contact-form" novalidate>
+                        <div class="form-group">
+                            <input type="text" id="form-name" class="form-input" placeholder=" " required>
+                            <label for="form-name" class="form-label">Name</label>
+                            <span class="error-message" id="name-error">Please fill in your name</span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="email" id="form-email" class="form-input" placeholder=" " required>
+                            <label for="form-email" class="form-label">Email</label>
+                            <span class="error-message" id="email-error">Please fill in a valid email address</span>
+                        </div>
+
+                        <div class="form-group">
+                            <textarea id="form-message" class="form-input form-textarea" placeholder=" " required></textarea>
+                            <label for="form-message" class="form-label">Message Details</label>
+                            <span class="error-message" id="message-error">Please write a message</span>
+                        </div>
+
+                        <button type="submit" id="form-submit-btn" class="btn btn-primary btn-submit magnetic">
+                            <span>Submit Message</span> <i class="fa-regular fa-paper-plane"></i>
+                        </button>
+                        <div id="form-status-msg" class="form-status-message"></div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-left">
+                <p class="footer-logo">Krishna<span class="logo-accent">.dev</span></p>
+                <p class="footer-tagline">Architecting scalable, intelligent full-stack systems.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#experience">Timeline</a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Krishna. Designed with custom CSS grid systems.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom Script -->
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <!-- Floating Sound Toggle Button -->
+    <button id="sound-toggle" class="sound-toggle-floating" aria-label="Toggle Sound">
+        <i class="fa-solid fa-volume-xmark"></i>
+    </button>
+
+    <!-- Custom Magnetic Inverting Cursor -->
+    <div id="custom-cursor" class="custom-cursor"></div>
+    <script src="carousel.js"></script>
+    <script src="portrait-points.js"></script>
+    <script src="landing.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
