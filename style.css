@@ -2678,3 +2678,6 @@ body.on-landing .header .menu-toggle-btn .bar {
 [data-theme="dark"] .bento-cell { backdrop-filter: none; }
 [data-theme="dark"] .header .nav-link,
 [data-theme="dark"] .nav-links a { color: #ffffff; }
+
+/* --- String divider (replaces the short accent line) --- */
+.string-line { pointer-events: none; display: block; overflow: visible; margin: 0 auto; max-width: 100%; }
