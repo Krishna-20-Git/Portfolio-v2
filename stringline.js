@@ -20,7 +20,7 @@
         svg.setAttribute('aria-hidden', 'true');
         var id = 'string-grad-' + idx;
         svg.innerHTML =
-            '<defs><linearGradient id="' + id + '" x1="0" x2="1" y1="0" y2="0">' +
+            '<defs><linearGradient id="' + id + '" gradientUnits="userSpaceOnUse" x1="0" x2="' + w + '" y1="0" y2="0">' +
             '<stop offset="0" style="stop-color:var(--accent-primary)"/>' +
             '<stop offset="1" style="stop-color:var(--accent-secondary)"/></linearGradient></defs>' +
             '<path fill="none" stroke="url(#' + id + ')" stroke-width="4" stroke-linecap="round"/>';
