@@ -39,15 +39,15 @@
 
 /* Secondary Subtle Dark Theme (Soft Charcoal & Lavender) */
 [data-theme="dark"] {
-    --bg-main: #141216;                     /* Deep Soft Obsidian */
-    --bg-surface: rgba(30, 28, 33, 0.65);    /* Velvet Surface */
-    --bg-surface-opaque: #1e1c21;
-    --border-color: rgba(255, 255, 255, 0.07);
-    --border-glow: rgba(162, 181, 205, 0.12);
+    --bg-main: #0a0a0c;                     /* Near-black, continues the landing page */
+    --bg-surface: rgba(28, 28, 34, 0.92);    /* Clearly lifted card surface */
+    --bg-surface-opaque: #1c1c22;
+    --border-color: rgba(255, 255, 255, 0.16);
+    --border-glow: rgba(162, 181, 205, 0.28);
     
-    --text-primary: #faf8fa;
-    --text-secondary: #a9a2b5;              /* Soft Lavender-Grey */
-    --text-muted: #797382;
+    --text-primary: #ffffff;
+    --text-secondary: #d3cfdc;              /* High-contrast body text */
+    --text-muted: #a49eb0;
     
     --accent-primary: #a2b5cd;              /* Soft Slate-Blue */
     --accent-secondary: #e8a598;            /* Soft Rose */
@@ -2649,3 +2649,32 @@ body.on-landing .header .menu-toggle-btn .bar {
         align-items: flex-start;
     }
 }
+
+/* --- Contrast pass: smooth landing -> page seam and stronger card edges --- */
+[data-theme="dark"] .landing::after {
+    content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 90px;
+    background: linear-gradient(to bottom, rgba(10,10,12,0), var(--bg-main));
+    pointer-events: none; z-index: 1;
+}
+[data-theme="dark"] .bento-cell,
+[data-theme="dark"] .bento-box,
+[data-theme="dark"] .skills-bento-card,
+[data-theme="dark"] .book-card .book-front {
+    background: var(--bg-surface-opaque);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 10px 30px -12px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+/* --- Contrast pass 2: stats, labels, quote mark, small text --- */
+[data-theme="dark"] .stat-number {
+    background: linear-gradient(135deg, #ffffff 0%, #ffd2c8 100%);
+    -webkit-background-clip: text; background-clip: text;
+}
+[data-theme="dark"] .stat-name { color: #e4e0ec; }
+[data-theme="dark"] .quote-icon { opacity: 0.6; color: #dfe8f5; }
+[data-theme="dark"] .cell-bio p { color: #ffffff; }
+[data-theme="dark"] .section-tag,
+[data-theme="dark"] .section-header .tag { color: #dfe8f5; }
+[data-theme="dark"] .bento-cell { backdrop-filter: none; }
+[data-theme="dark"] .header .nav-link,
+[data-theme="dark"] .nav-links a { color: #ffffff; }
