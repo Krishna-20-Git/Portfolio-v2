@@ -425,6 +425,7 @@ function initContactForm() {
         // The very first message triggers a one-time activation email to this address:
         // open it and click "Activate Form". After that, every message arrives normally.
         const CONTACT_EMAIL = 'krishnadpsranchi@gmail.com';
+        const FORM_TOKEN = '86bfd3ac85fcde603a63fcc17a50e64f'; // FormSubmit's private alias for the address above
         const name = nameInput.value.trim();
         const email = emailInput.value.trim();
         const message = messageInput.value.trim();
@@ -436,7 +437,7 @@ function initContactForm() {
             window.location.href = 'mailto:' + CONTACT_EMAIL + '?subject=' + subject + '&body=' + body;
         };
 
-        fetch('https://formsubmit.co/ajax/' + CONTACT_EMAIL, {
+        fetch('https://formsubmit.co/ajax/' + FORM_TOKEN, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
             body: JSON.stringify({
