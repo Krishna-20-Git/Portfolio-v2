@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Krishna | Full-Stack & IoT Systems Engineer</title>
-    <meta name="description" content="Explore the Bento-grid inspired portfolio of Krishna, featuring distributed systems, IoT nodes, and full-stack creations. Clean, responsive styling.">
+    <title>Krishna | Software Engineer: Full-Stack, IoT &amp; Systems</title>
+    <meta name="description" content="Krishna is a software engineer building full-stack applications, distributed systems and IoT projects. Explore Kriya, a Kafka invoice engine, an algorithm learning suite and an OS scheduling simulator.">
+    <meta name="theme-color" content="#05070b">
+    <meta property="og:title" content="Krishna | Software Engineer">
+    <meta property="og:description" content="Building systems that matter: full-stack applications, intelligent systems, algorithms and IoT.">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,8 +16,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="upgrade.css">
 </head>
-<body data-theme="light">
+<body data-theme="dark">
+    <a class="skip-link" href="#about">Skip to content</a>
     <!-- Scroll Progress Bar -->
     <div id="scroll-progress-bar" class="scroll-progress-bar"></div>
 
@@ -63,34 +68,19 @@
     </header>
 
     <main>
-        <!-- Landing: dot -> "!" -> tumbling name -> PORTFOLIO -> dust gathers into a portrait -->
-        <section class="landing is-intro" id="hero" aria-label="Introduction">
-            <div class="landing-glow" aria-hidden="true"></div>
-
-            <!-- Intro stage: the dot / exclamation mark and the tumbling name -->
-            <div class="landing-stage" id="landing-stage" aria-hidden="true">
-                <div class="ls-mark" id="ls-mark"><span class="ls-bar"></span><span class="ls-dot"></span></div>
-                <div class="ls-name" id="ls-name"></div>
-            </div>
-
-            <!-- Final hero copy -->
-            <div class="landing-main" id="landing-main">
-                <h1 class="landing-title" id="landing-title" aria-label="Krishna, Portfolio"></h1>
-                <div class="landing-row">
-                    <p class="landing-role"><strong>IoT &amp; Full-Stack</strong> <em>Developer</em></p>
-                    <div class="landing-actions">
-                        <a href="#projects" class="landing-pill">Projects</a>
-                        <a href="#contact" class="landing-pill landing-pill-solid">Contact</a>
-                    </div>
+        <!-- Hero: copy on the left, the shared 3D scene (scene3d.js) shows through on the right -->
+        <section class="hero3d" id="hero" aria-labelledby="hero-title">
+            <div class="hero-inner container">
+                <p class="hero-eyebrow"><span class="hero-eyebrow-dot" aria-hidden="true"></span>B.Tech CSE (IoT) &middot; SRMIST &middot; 2024&ndash;2028</p>
+                <h1 class="hero-name" id="hero-title" aria-label="Krishna"><span class="hero-name-letters" id="hero-name" aria-hidden="true">KRISHNA</span></h1>
+                <p class="hero-tagline">Software Engineer.<br><span>Building Systems That Matter.</span></p>
+                <p class="hero-copy">I build software, explore intelligent systems, and connect code with the physical world &mdash; from full-stack applications to AIoT and robotics.</p>
+                <div class="hero-cta">
+                    <a href="#projects" class="btn-hero btn-hero-primary">Explore my work <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    <a href="#contact" class="btn-hero btn-hero-ghost">Let&rsquo;s connect</a>
                 </div>
             </div>
-
-            <canvas class="landing-canvas" id="landing-canvas" aria-hidden="true"></canvas>
-
-            <button type="button" class="landing-skip" id="landing-skip">Skip intro</button>
-            <a href="#about" class="scroll-indicator landing-scroll" aria-label="Scroll Down" id="scroll-down-btn">
-                <span class="mouse"><span class="wheel"></span></span>
-            </a>
+            <a href="#about" class="hero-scroll" aria-label="Scroll to About" id="scroll-down-btn"><span class="hero-scroll-line" aria-hidden="true"></span><span>Scroll</span></a>
         </section>
 
         <!-- Main Bento Grid Dashboard (About & Profile) -->
@@ -114,9 +104,12 @@
                     </p>
                 </div>
 
-                <!-- Bento Cell 2: Slot B (Where the avatar ends up on scroll down) -->
+                <!-- Bento Cell 2: portrait (particle effect from portrait.js, photo is the fallback) -->
                 <div class="bento-cell cell-avatar reveal-up">
-                    <div id="about-avatar-placeholder" class="avatar-placeholder" role="img" aria-label="Photo of Krishna"></div>
+                    <figure class="portrait" id="portrait" role="img" aria-label="Portrait of Krishna">
+                        <img class="portrait-photo" src="assets/avatar.jpg" alt="" loading="lazy" decoding="async">
+                        <canvas class="portrait-canvas" id="portrait-canvas" aria-hidden="true"></canvas>
+                    </figure>
                 </div>
 
                 <!-- Bento Cell 3: Metrics List -->
@@ -169,71 +162,64 @@
             </div>
         </section>
 
-        <!-- Technical Skills Section -->
+        <!-- Technical Skills: interactive technology nodes -->
         <section class="skills-section container" id="skills">
             <div class="section-header reveal-up">
                 <span class="section-tag">Expertise</span>
                 <h2 class="section-title">Technical Skills</h2>
                 <div class="accent-line"></div>
             </div>
-            
-            <div class="skills-bento-grid">
-                <!-- Languages -->
-                <div class="skills-bento-card reveal-up scroll-3d-card">
-                    <div class="card-header">
-                        <i class="fa-solid fa-code text-marigold"></i>
-                        <h3>Languages</h3>
+            <p class="skills-hint">Select any technology to see which project below uses it.</p>
+
+            <div class="skills-explorer">
+                <div class="skill-groups">
+                    <div class="skill-group reveal-up">
+                        <div class="skill-group-head"><i class="fa-solid fa-code text-marigold" aria-hidden="true"></i><h3>Languages</h3></div>
+                        <ul class="tech-list">
+                            <li><button type="button" class="tech-node" aria-pressed="false">JavaScript (ES6+)</button></li>
+                            <li><button type="button" class="tech-node" aria-pressed="false">HTML5 &amp; CSS3</button></li>
+                            <li><button type="button" class="tech-node" data-projects="algorithms" aria-pressed="false">Python</button></li>
+                            <li><button type="button" class="tech-node" data-projects="invoice" aria-pressed="false">Java 21</button></li>
+                            <li><button type="button" class="tech-node" aria-pressed="false">C &amp; C++</button></li>
+                        </ul>
                     </div>
-                    <ul class="skills-list">
-                        <li>JavaScript (ES6+)</li>
-                        <li>HTML5 & CSS3</li>
-                        <li>Python</li>
-                        <li>Java 21</li>
-                        <li>C & C++</li>
-                    </ul>
-                </div>
-                <!-- Frontend -->
-                <div class="skills-bento-card reveal-up scroll-3d-card">
-                    <div class="card-header">
-                        <i class="fa-solid fa-cubes text-saffron"></i>
-                        <h3>Frontend</h3>
+                    <div class="skill-group reveal-up">
+                        <div class="skill-group-head"><i class="fa-solid fa-cubes text-saffron" aria-hidden="true"></i><h3>Frontend</h3></div>
+                        <ul class="tech-list">
+                            <li><button type="button" class="tech-node" data-projects="kriya scheduler" aria-pressed="false">React.js</button></li>
+                            <li><button type="button" class="tech-node" aria-pressed="false">Next.js</button></li>
+                            <li><button type="button" class="tech-node" data-projects="scheduler" aria-pressed="false">Tailwind CSS</button></li>
+                            <li><button type="button" class="tech-node" aria-pressed="false">Framer Motion</button></li>
+                            <li><button type="button" class="tech-node" data-projects="scheduler" aria-pressed="false">Responsive Grid/Flex</button></li>
+                        </ul>
                     </div>
-                    <ul class="skills-list">
-                        <li>React.js</li>
-                        <li>Next.js</li>
-                        <li>Tailwind CSS</li>
-                        <li>Framer Motion</li>
-                        <li>Responsive Grid/Flex</li>
-                    </ul>
-                </div>
-                <!-- Backend -->
-                <div class="skills-bento-card reveal-up scroll-3d-card">
-                    <div class="card-header">
-                        <i class="fa-solid fa-server text-indigo"></i>
-                        <h3>Backend</h3>
+                    <div class="skill-group reveal-up">
+                        <div class="skill-group-head"><i class="fa-solid fa-server text-indigo" aria-hidden="true"></i><h3>Backend</h3></div>
+                        <ul class="tech-list">
+                            <li><button type="button" class="tech-node" data-projects="invoice" aria-pressed="false">Spring Boot 3.5</button></li>
+                            <li><button type="button" class="tech-node" data-projects="algorithms" aria-pressed="false">Flask Monoliths</button></li>
+                            <li><button type="button" class="tech-node" data-projects="invoice" aria-pressed="false">Apache Kafka</button></li>
+                            <li><button type="button" class="tech-node" data-projects="invoice" aria-pressed="false">stateless JWT</button></li>
+                            <li><button type="button" class="tech-node" data-projects="kriya invoice" aria-pressed="false">PostgreSQL &amp; Neon</button></li>
+                        </ul>
                     </div>
-                    <ul class="skills-list">
-                        <li>Spring Boot 3.5</li>
-                        <li>Flask Monoliths</li>
-                        <li>Apache Kafka</li>
-                        <li>stateless JWT</li>
-                        <li>PostgreSQL & Neon</li>
-                    </ul>
-                </div>
-                <!-- DevOps & CS Fundamentals -->
-                <div class="skills-bento-card reveal-up scroll-3d-card">
-                    <div class="card-header">
-                        <i class="fa-solid fa-microchip text-emerald"></i>
-                        <h3>CS & IoT</h3>
+                    <div class="skill-group reveal-up">
+                        <div class="skill-group-head"><i class="fa-solid fa-microchip text-emerald" aria-hidden="true"></i><h3>CS &amp; IoT</h3></div>
+                        <ul class="tech-list">
+                            <li><button type="button" class="tech-node" data-projects="algorithms" aria-pressed="false">Data Structures / DSA</button></li>
+                            <li><button type="button" class="tech-node" data-projects="scheduler" aria-pressed="false">Operating Systems</button></li>
+                            <li><button type="button" class="tech-node" aria-pressed="false">Embedded Systems</button></li>
+                            <li><button type="button" class="tech-node" aria-pressed="false">Docker &amp; Compose</button></li>
+                            <li><button type="button" class="tech-node" data-projects="kriya invoice scheduler" aria-pressed="false">Git &amp; Vercel</button></li>
+                        </ul>
                     </div>
-                    <ul class="skills-list">
-                        <li>Data Structures / DSA</li>
-                        <li>Operating Systems</li>
-                        <li>Embedded Systems</li>
-                        <li>Docker & Compose</li>
-                        <li>Git & Vercel</li>
-                    </ul>
                 </div>
+                <aside class="tech-panel" id="tech-panel" aria-live="polite">
+                    <p class="tech-panel-label">Used in</p>
+                    <h3 class="tech-panel-title" id="tech-panel-title">Pick a technology</h3>
+                    <ul class="tech-panel-links" id="tech-panel-links"></ul>
+                    <p class="tech-panel-note" id="tech-panel-note">Links come from the project descriptions on this page.</p>
+                </aside>
             </div>
         </section>
 
@@ -263,156 +249,96 @@
                 <button class="filter-btn" data-filter="frontend">Frontend</button>
             </div>
 
-            <!-- Project Grid (Book style hover cells) -->
-            <div class="project-grid" id="project-grid-container">
-                <!-- Kriya Project Manager -->
-                <article class="project-card book-card reveal-up" data-category="full-stack systems" id="project-kriya">
-                    <div class="project-card-inside">
-                        <h4 class="inside-title">Core Achievements</h4>
-                        <ul class="project-bullets">
-                            <li><i class="fa-solid fa-shield-halved"></i> Refresh-token rotation, role-based access and audit log.</li>
-                            <li><i class="fa-solid fa-flask"></i> 224 automated tests against a real PostgreSQL database.</li>
-                        </ul>
-                        <div class="project-links">
-                            <a href="https://kriya-eosin.vercel.app" target="_blank" rel="noopener" class="btn-project-link">
-                                <span>Open Web App</span> <i class="fa-solid fa-arrow-right"></i>
-                            </a>
-                            <a href="https://github.com/Krishna-20-Git/Kriya" target="_blank" rel="noopener" class="btn-project-link">
-                                <span>View Source</span> <i class="fa-solid fa-arrow-right"></i>
-                            </a>
-                        </div>
+            <!-- Project case studies: four different compositions -->
+            <div class="case-list" id="project-grid-container">
+
+                <!-- 01 Kriya: wide feature, web + phone -->
+                <article class="case case--feature reveal-up" data-category="full-stack systems" id="project-kriya">
+                    <div class="case-media tilt" data-tilt>
+                        <figure class="shot shot-browser"><img src="assets/kriya_web_dashboard.png" alt="Kriya web dashboard showing projects and tasks" loading="lazy" decoding="async"></figure>
+                        <figure class="shot shot-phone"><img src="assets/kriya_android_dashboard.png" alt="Kriya Android app dashboard" loading="lazy" decoding="async"></figure>
                     </div>
-                    <div class="project-card-cover">
-                        <div class="cover-front">
-                            <div class="cover-screenshot-wrapper">
-                                <img src="assets/kriya_web_dashboard.png" alt="Kriya project management dashboard" class="cover-screenshot">
-                            </div>
-                            <div class="cover-content">
-                                <h3>Kriya Project Manager</h3>
-                                <span class="project-date"><i class="fa-regular fa-calendar"></i> Oct 2026</span>
-                                <span class="hover-tip">Hover to Open <i class="fa-solid fa-book-open"></i></span>
-                            </div>
-                        </div>
-                        <div class="cover-back">
-                            <span class="project-tags">React &bull; React Native &bull; Express &bull; PostgreSQL</span>
-                            <h4 class="inside-title">Web + Android Task Manager</h4>
-                            <p class="project-description">
-                                Project and task manager with a React web app and an Expo Android app sharing one Express API and one PostgreSQL database. Sign in once, use it on either platform.
-                            </p>
+                    <div class="case-body">
+                        <p class="case-meta"><span class="case-index">01</span><span class="project-date"><i class="fa-regular fa-calendar" aria-hidden="true"></i> Oct 2026</span></p>
+                        <h3 class="case-title">Kriya Project Manager</h3>
+                        <p class="case-kicker">Web + Android task manager</p>
+                        <p class="case-desc">Project and task manager with a React web app and an Expo Android app sharing one Express API and one PostgreSQL database. Sign in once, use it on either platform.</p>
+                        <ul class="case-points">
+                            <li><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Refresh-token rotation, role-based access and audit log.</li>
+                            <li><i class="fa-solid fa-flask" aria-hidden="true"></i> 224 automated tests against a real PostgreSQL database.</li>
+                        </ul>
+                        <ul class="case-stack" aria-label="Technology"><li>React</li><li>React Native</li><li>Express</li><li>PostgreSQL</li></ul>
+                        <div class="case-links">
+                            <a href="https://kriya-eosin.vercel.app" target="_blank" rel="noopener" class="btn-project-link"><span>Open Web App</span> <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                            <a href="https://github.com/Krishna-20-Git/Kriya" target="_blank" rel="noopener" class="btn-project-link"><span>View Source</span> <i class="fa-brands fa-github" aria-hidden="true"></i></a>
                         </div>
                     </div>
                 </article>
 
-                <!-- Project 1 -->
-                <article class="project-card book-card reveal-up" data-category="full-stack systems" id="project-invoice">
-                    <!-- Inside Card (Right Page) -->
-                    <div class="project-card-inside">
-                        <h4 class="inside-title">Core Achievements</h4>
-                        <ul class="project-bullets">
-                            <li><i class="fa-solid fa-bolt"></i> Async Kafka parser reduces API response latency to milliseconds.</li>
-                            <li><i class="fa-solid fa-lock"></i> Secured with stateless JSON Web Tokens (JWT).</li>
+                <!-- 02 Invoice system: split, text left -->
+                <article class="case case--split reveal-up" data-category="full-stack systems" id="project-invoice">
+                    <div class="case-body">
+                        <p class="case-meta"><span class="case-index">02</span><span class="project-date"><i class="fa-regular fa-calendar" aria-hidden="true"></i> May &ndash; Jun 2026</span></p>
+                        <h3 class="case-title">Distributed Invoice System</h3>
+                        <p class="case-kicker">Asynchronous billing engine</p>
+                        <p class="case-desc">Asynchronous processing engine utilizing Kafka queues and Spring Boot to ingest bulk CSV datasets (10,000+ entries) instantly.</p>
+                        <ul class="case-points">
+                            <li><i class="fa-solid fa-bolt" aria-hidden="true"></i> Async Kafka parser reduces API response latency to milliseconds.</li>
+                            <li><i class="fa-solid fa-lock" aria-hidden="true"></i> Secured with stateless JSON Web Tokens (JWT).</li>
                         </ul>
-                        <div class="project-links">
-                            <a href="https://invoice-frontend-tau-lemon.vercel.app/login" target="_blank" rel="noopener" class="btn-project-link">
-                                <span>Demo System</span> <i class="fa-solid fa-arrow-right"></i>
-                            </a>
+                        <ul class="case-stack" aria-label="Technology"><li>Spring Boot</li><li>Kafka</li><li>Postgres</li></ul>
+                        <div class="case-links">
+                            <a href="https://invoice-frontend-tau-lemon.vercel.app/login" target="_blank" rel="noopener" class="btn-project-link"><span>Demo System</span> <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
                         </div>
                     </div>
-                    <!-- Cover Page (flaps open to the left) -->
-                    <div class="project-card-cover">
-                        <div class="cover-front">
-                            <div class="cover-screenshot-wrapper">
-                                <img src="assets/invoice_screenshot_v2.png" alt="Invoice App Mockup" class="cover-screenshot">
-                            </div>
-                            <div class="cover-content">
-                                <h3>Distributed Invoice System</h3>
-                                <span class="project-date"><i class="fa-regular fa-calendar"></i> May &ndash; Jun 2026</span>
-                                <span class="hover-tip">Hover to Open <i class="fa-solid fa-book-open"></i></span>
-                            </div>
+                    <div class="case-media tilt" data-tilt>
+                        <figure class="shot shot-browser"><img src="assets/invoice_screenshot_v2.png" alt="Distributed invoice system interface" loading="lazy" decoding="async"></figure>
+                    </div>
+                </article>
+
+                <!-- 03 Algorithm suite: banner image over text -->
+                <article class="case case--banner reveal-up" data-category="full-stack systems" id="project-algorithms">
+                    <div class="case-media tilt" data-tilt>
+                        <figure class="shot shot-browser"><img src="assets/dsa_screenshot_v3.png" alt="Algorithm suite platform showing visualizers" loading="lazy" decoding="async"></figure>
+                        <span class="case-badge"><strong>28</strong> algorithm visualizers</span>
+                    </div>
+                    <div class="case-body case-body--cols">
+                        <div>
+                            <p class="case-meta"><span class="case-index">03</span><span class="project-date"><i class="fa-regular fa-calendar" aria-hidden="true"></i> Nov &ndash; Dec 2025</span></p>
+                            <h3 class="case-title">Algorithm Suite Platform</h3>
+                            <p class="case-kicker">Algorithmic learning SaaS</p>
                         </div>
-                        <!-- Inside Left Page -->
-                        <div class="cover-back">
-                            <span class="project-tags">Spring Boot &bull; Kafka &bull; Postgres</span>
-                            <h4 class="inside-title">Asynchronous Billing Engine</h4>
-                            <p class="project-description">
-                                Asynchronous processing engine utilizing Kafka queues and Spring Boot to ingest bulk CSV datasets (10,000+ entries) instantly.
-                            </p>
+                        <div>
+                            <p class="case-desc">SaaS platform unifying 28 algorithm visualizers into a modular monolith using Flask Blueprints. Tracks student progression metrics.</p>
+                            <ul class="case-points">
+                                <li><i class="fa-solid fa-chart-bar" aria-hidden="true"></i> Dynamic dashboard tracks learning session milestones.</li>
+                                <li><i class="fa-solid fa-network-wired" aria-hidden="true"></i> Reduced script redundancy by 40% using Blueprint modularity.</li>
+                            </ul>
+                            <ul class="case-stack" aria-label="Technology"><li>Python</li><li>Flask</li><li>SQLite</li></ul>
+                            <div class="case-links">
+                                <a href="https://dsa-platform-v2.onrender.com" target="_blank" rel="noopener" class="btn-project-link"><span>Launch Platform</span> <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                            </div>
                         </div>
                     </div>
                 </article>
 
-                <!-- Project 2 -->
-                <article class="project-card book-card reveal-up" data-category="full-stack systems" id="project-algorithms">
-                    <!-- Inside Card (Right Page) -->
-                    <div class="project-card-inside">
-                        <h4 class="inside-title">Core Achievements</h4>
-                        <ul class="project-bullets">
-                            <li><i class="fa-solid fa-chart-bar"></i> Dynamic dashboard tracks learning session milestones.</li>
-                            <li><i class="fa-solid fa-network-wired"></i> Reduced script redundancy by 40% using Blueprint modularity.</li>
+                <!-- 04 OS scheduler: narrow offset, image left -->
+                <article class="case case--offset reveal-up" data-category="frontend" id="project-scheduler">
+                    <div class="case-media tilt" data-tilt>
+                        <figure class="shot shot-browser"><img src="assets/os_screenshot_v2.png" alt="OS scheduling simulator with Gantt chart" loading="lazy" decoding="async"></figure>
+                    </div>
+                    <div class="case-body">
+                        <p class="case-meta"><span class="case-index">04</span><span class="project-date"><i class="fa-regular fa-calendar" aria-hidden="true"></i> Oct &ndash; Dec 2025</span></p>
+                        <h3 class="case-title">OS Scheduling Simulator</h3>
+                        <p class="case-kicker">CPU scheduling simulator</p>
+                        <p class="case-desc">Client-side renderer demonstrating CPU execution algorithms (FCFS, SJF, Priority, Round Robin). Dynamic updates render Gantt charting sequences.</p>
+                        <ul class="case-points">
+                            <li><i class="fa-solid fa-desktop" aria-hidden="true"></i> Decoupled chart renderer handles dynamic datasets smoothly.</li>
+                            <li><i class="fa-solid fa-crop" aria-hidden="true"></i> Responsive Tailwind layout built for all viewports.</li>
                         </ul>
-                        <div class="project-links">
-                            <a href="https://dsa-platform-v2.onrender.com" target="_blank" rel="noopener" class="btn-project-link">
-                                <span>Launch Platform</span> <i class="fa-solid fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- Cover Page -->
-                    <div class="project-card-cover">
-                        <div class="cover-front">
-                            <div class="cover-screenshot-wrapper">
-                                <img src="assets/dsa_screenshot_v3.png" alt="DSA Platform Mockup" class="cover-screenshot">
-                            </div>
-                            <div class="cover-content">
-                                <h3>Algorithm Suite Platform</h3>
-                                <span class="project-date"><i class="fa-regular fa-calendar"></i> Nov &ndash; Dec 2025</span>
-                                <span class="hover-tip">Hover to Open <i class="fa-solid fa-book-open"></i></span>
-                            </div>
-                        </div>
-                        <!-- Inside Left Page -->
-                        <div class="cover-back">
-                            <span class="project-tags">Python &bull; Flask &bull; SQLite</span>
-                            <h4 class="inside-title">Algorithmic Learning SaaS</h4>
-                            <p class="project-description">
-                                SaaS platform unifying 28 algorithm visualizers into a modular monolith using Flask Blueprints. Tracks student progression metrics.
-                            </p>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Project 3 -->
-                <article class="project-card book-card reveal-up" data-category="frontend" id="project-scheduler">
-                    <!-- Inside Card (Right Page) -->
-                    <div class="project-card-inside">
-                        <h4 class="inside-title">Core Achievements</h4>
-                        <ul class="project-bullets">
-                            <li><i class="fa-solid fa-desktop"></i> Decoupled chart renderer handles dynamic datasets smoothly.</li>
-                            <li><i class="fa-solid fa-crop"></i> Responsive Tailwind layout built for all viewports.</li>
-                        </ul>
-                        <div class="project-links">
-                            <a href="https://os-scheduler-visualizer.vercel.app" target="_blank" rel="noopener" class="btn-project-link">
-                                <span>Simulate Schedulers</span> <i class="fa-solid fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- Cover Page -->
-                    <div class="project-card-cover">
-                        <div class="cover-front">
-                            <div class="cover-screenshot-wrapper">
-                                <img src="assets/os_screenshot_v2.png" alt="OS Simulator Mockup" class="cover-screenshot">
-                            </div>
-                            <div class="cover-content">
-                                <h3>OS Scheduling Simulator</h3>
-                                <span class="project-date"><i class="fa-regular fa-calendar"></i> Oct &ndash; Dec 2025</span>
-                                <span class="hover-tip">Hover to Open <i class="fa-solid fa-book-open"></i></span>
-                            </div>
-                        </div>
-                        <!-- Inside Left Page -->
-                        <div class="cover-back">
-                            <span class="project-tags">React.js &bull; Tailwind &bull; Context</span>
-                            <h4 class="inside-title">CPU Scheduling Simulator</h4>
-                            <p class="project-description">
-                                Client-side renderer demonstrating CPU execution algorithms (FCFS, SJF, Priority, Round Robin). Dynamic updates render Gantt charting sequences.
-                            </p>
+                        <ul class="case-stack" aria-label="Technology"><li>React.js</li><li>Tailwind</li><li>Context</li></ul>
+                        <div class="case-links">
+                            <a href="https://os-scheduler-visualizer.vercel.app" target="_blank" rel="noopener" class="btn-project-link"><span>Simulate Schedulers</span> <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
                         </div>
                     </div>
                 </article>
@@ -561,9 +487,7 @@
         </div>
     </footer>
 
-    <!-- Custom Script -->
-    <!-- Lenis Smooth Scroll -->
-    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <!-- Scripts (no third-party script dependency; 3D engine is self-hosted in vendor/) -->
     <!-- Floating Sound Toggle Button -->
     <button id="sound-toggle" class="sound-toggle-floating" aria-label="Toggle Sound">
         <i class="fa-solid fa-volume-xmark"></i>
@@ -572,9 +496,13 @@
     <!-- Custom Magnetic Inverting Cursor -->
     <div id="custom-cursor" class="custom-cursor"></div>
     <script src="carousel.js"></script>
-    <script src="portrait-points.js"></script>
+    <script src="portrait-points.js" defer></script>
     <script src="landing.js"></script>
     <script src="app.js"></script>
     <script src="stringline.js"></script>
+    <script src="portrait.js" defer></script>
+    <script src="skills.js"></script>
+    <script src="ui.js"></script>
+    <script src="scene3d.js"></script>
 </body>
 </html>

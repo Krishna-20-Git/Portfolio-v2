@@ -41,7 +41,8 @@ function initTheme() {
     const savedTheme = localStorage.getItem('theme');
     const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     
-    if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+    // Dark is the signature look; visitors who picked light before keep it.
+    if (savedTheme !== 'light') {
         body.setAttribute('data-theme', 'dark');
         updateThemeIcon('dark');
     } else {
@@ -203,7 +204,7 @@ function initTypewriter() {
 /* --- 5. Projects Categorization Filter --- */
 function initProjectFilter() {
     const filterButtons = document.querySelectorAll('.filter-btn');
-    const projectCards = document.querySelectorAll('.project-card');
+    const projectCards = document.querySelectorAll('.project-card, .case');
     
     filterButtons.forEach(btn => {
         btn.addEventListener('click', () => {
@@ -659,6 +660,8 @@ function initGitHubTerminal() {
 function initAmbientCanvas() {
     const canvas = document.getElementById('ambient-canvas');
     if (!canvas) return;
+    // The shared WebGL scene replaces this 2D background when it is available.
+    if (document.documentElement.classList.contains('scene-3d')) { canvas.style.display = 'none'; return; }
     
     const ctx = canvas.getContext('2d');
     let width = canvas.width = window.innerWidth;
